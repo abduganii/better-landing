@@ -30,6 +30,7 @@ export default function Navbar({ lng }) {
         }
     }, []);
 
+
     return (
         <>
             <div
@@ -45,8 +46,8 @@ export default function Navbar({ lng }) {
                     </div>
                     <nav>
                         <ul className="flex">
-                            {navList?.map((el) => (
-                                <li className="ml-1 lg:ml-4 text-base font-medium" key={el.id}>
+                            {navList?.map((el, i) => (
+                                <li className="ml-1 lg:ml-4 text-base font-medium" key={i}>
                                     <a href={el.idText}>{el.name[lng]}</a>
                                 </li>
                             ))}
@@ -56,7 +57,7 @@ export default function Navbar({ lng }) {
                 </div>
             </div>
 
-            <div className="flex mt-3 justify-between items-center w-full bg-white -[950px]:hidden">
+            <div className="flex mt-3 justify-between items-center w-full bg-white min-[950px]:hidden">
                 <div>
                     <Image src={logo} alt="logo" />
                 </div>

@@ -8,7 +8,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const SlickIItem = (props) => {
-
   const langData = {
     uz,
     ru,
