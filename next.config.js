@@ -4,6 +4,7 @@ const nextConfig = {
         domains: [
           "192.168.0.109",
         "localhost",
+        "api.betterfuture.uz",
           "api.qrserver.com"
         ]
       },
