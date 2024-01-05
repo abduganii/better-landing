@@ -6,50 +6,78 @@ import TypeWriter from "typewriter-effect";
 
 import gsap from "gsap";
 
-import ru from '../app/i18n/locales/ru/translation.json'
-import uz from '../app/i18n/locales/uz/translation.json'
-import en from '../app/i18n/locales/en/translation.json'
+import ru from "../app/i18n/locales/ru/translation.json";
+import uz from "../app/i18n/locales/uz/translation.json";
+import en from "../app/i18n/locales/en/translation.json";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function GlobalProblems({ lng, data }) {
-
   const langData = {
     uz,
     ru,
-    en
-  }
+    en,
+  };
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.fromTo(".img_content", { opacity: 0, x: 200, scale: 0.3 }, {
-      scale: 1, opacity: 1, duration: 1, delay: 0, x: 0, scrollTrigger: {
-        trigger: '.home',
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      ".img_content",
+      { opacity: 0, x: 200, scale: 0.3 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        delay: 0,
+        x: 0,
+        scrollTrigger: {
+          trigger: ".home",
+        },
       }
-    })
-    gsap.fromTo('.text__content', { opacity: 0, x: -200, }, {
-      opacity: 1, duration: 1, delay: 0, x: 0, scrollTrigger: {
-        trigger: '.home',
+    );
+    gsap.fromTo(
+      ".text__content",
+      { opacity: 0, x: -200 },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0,
+        x: 0,
+        scrollTrigger: {
+          trigger: ".home",
+        },
       }
-    })
-    gsap.fromTo('.text__content2', { opacity: 0, x: 0, }, {
-      opacity: 1, duration: 1, delay: 0, x: 0, scrollTrigger: {
-        trigger: '.home',
+    );
+    gsap.fromTo(
+      ".text__content2",
+      { opacity: 0, x: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0,
+        x: 0,
+        scrollTrigger: {
+          trigger: ".home",
+        },
       }
-    })
-    gsap.fromTo('.btn__content', { opacity: 0, scale: 0.3, }, {
-      opacity: 1, duration: 1, scale: 1, scrollTrigger: {
-        trigger: '.home',
+    );
+    gsap.fromTo(
+      ".btn__content",
+      { opacity: 0, scale: 0.3 },
+      {
+        opacity: 1,
+        duration: 1,
+        scale: 1,
+        scrollTrigger: {
+          trigger: ".home",
+        },
       }
-    })
-
-  }, [])
+    );
+  }, []);
 
   return (
     <div className="home" id="home">
       <div className="flex gap-6 items-center min-[850px]:h-screen ">
-        <div
-
-          className="text  my-auto min-[850px]:w-1/2 min-[850px]:py-0 py-10">
+        <div className="text  my-auto min-[850px]:w-1/2 min-[850px]:py-0 py-10">
           <div className=" m-0">
             <h2 className="text__content opacity-0  text-3xl  sm:text-5xl font-bold">
               {data?.[`title_${lng}`]}
@@ -58,9 +86,7 @@ export default function GlobalProblems({ lng, data }) {
             <div className="text__content2 opacity-0  mt-4 font-normal sm:text-lg text-base">
               <TypeWriter
                 options={{
-                  strings: [
-                    data?.[`desc_${lng}`]
-                  ],
+                  strings: [data?.[`desc_${lng}`]],
                   autoStart: true,
                   loop: true,
                 }}
@@ -77,11 +103,14 @@ export default function GlobalProblems({ lng, data }) {
             </div>
           </div>
         </div>
-        <div
-
-          className="img_content opacity-0 min-[850px]:block hidden w-1/2">
-          <Image src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`} width={100} height={100} className="w-full" alt="img" />
-
+        <div className="img_content opacity-0 min-[850px]:block hidden w-1/2">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`}
+            width={800}
+            height={400}
+            className="w-full"
+            alt="img"
+          />
         </div>
       </div>
     </div>
